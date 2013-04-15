@@ -1,0 +1,35 @@
+subprojects {
+	apply plugin: 'groovy'
+	version = '1.0.0-SNAPSHOT'
+	group = 'org.gradle.intro'
+	configurations.compile.transitive = true  // Make sure transitive project dependencies are resolved.
+ 
+	repositories {
+		mavenCentral()
+	}
+ 
+	// add groovy dependency here 
+    
+	task createTree(description: 'Create project tree') << { task ->
+		task.project.sourceSets*.groovy.srcDirs*.each {
+			println "Create $it"
+			it.mkdirs()
+		}
+	}
+}
+ 
+project(':dataaccess') {
+	dependencies {
+		compile project(':domain')
+	}
+}
+ 
+project(':services') {
+	dependencies {
+		compile project(':dataaccess')
+	}
+}
+ 
+// add web project specification here
+ 
+	
