@@ -10,9 +10,9 @@ subprojects {
  
 	// add groovy dependency here 
     
-	task createTree(description: 'Create project tree') << { task ->
+	task setupProject(description: 'Setup project') << { task ->
 		task.project.sourceSets*.groovy.srcDirs*.each {
-			println "Create $it"
+			println "Creating $it"
 			it.mkdirs()
 		}
 	}
