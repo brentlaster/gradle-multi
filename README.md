@@ -1,4 +1,4 @@
 gradle-multi
 ============
 
-Example project
+Example project for gradle classes.  
