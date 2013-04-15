@@ -31,5 +31,14 @@ project(':services') {
 }
  
 // add web project specification here
- 
+project(':web') {
+	apply plugin: 'jetty'
+
+	setupProject << { task ->
+		def webInfDir = new File(task.project.webAppDir, '/WEB-INF')
+		println "Creating $webInfDir"
+		webInfDir.mkdirs()
+	}
+
+} 
 	
