@@ -1,1 +1,0 @@
-include 'domain', 'dataaccess', 'services', 'web'
