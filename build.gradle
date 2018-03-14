@@ -1,12 +1,15 @@
+repositories {
+		mavenCentral()
+	}
+
+
 subprojects {
 	apply plugin: 'groovy'
 	version = '1.0.0-SNAPSHOT'
 	group = 'org.gradle.intro'
 	configurations.compile.transitive = true  // Make sure transitive project dependencies are resolved.
  
-	repositories {
-		mavenCentral()
-	}
+
  
 	// add groovy dependency here 
     
