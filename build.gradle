@@ -1,10 +1,11 @@
-repositories {
-		mavenCentral()
-	}
-
 
 subprojects {
 	apply plugin: 'groovy'
+	
+	repositories {
+		mavenCentral()
+	}
+	
 	version = '1.0.0-SNAPSHOT'
 	group = 'org.gradle.intro'
 	configurations.compile.transitive = true  // Make sure transitive project dependencies are resolved.
@@ -12,12 +13,15 @@ subprojects {
 
  
 	// add groovy dependency here 
+
     
-	task setupProject(description: 'Setup project') << { task ->
+	task setupProject(description: 'Setup project') {
+	  doLast{ task ->
 		task.project.sourceSets*.groovy.srcDirs*.each {
 			println "Creating $it"
 			it.mkdirs()
 		}
+	  }
 	}
 }
  
@@ -34,5 +38,3 @@ project(':services') {
 }
  
 // add web project specification here
- 
-	
